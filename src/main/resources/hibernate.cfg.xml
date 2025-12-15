@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/HSF</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">root</property>
+
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Show SQL in console -->
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+        <!-- You want Hibernate to manage sessions automatically per thread -->
+        <property name="hibernate.current_session_context_class">thread</property>
+        
+        <!-- If You want Hibernate Execution Window Format in good manner so queries can get understood-->
+        <property name="format_sql">true</property>
+        
+
+        <!-- Mapping files or annotated classes -->
+        <mapping class="com.entity.Category"/>
+        <mapping class="com.entity.Product"/>
+    </session-factory>
+</hibernate-configuration>
